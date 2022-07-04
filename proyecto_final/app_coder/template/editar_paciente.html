@@ -1,0 +1,31 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <form action="{% url 'editar_paciente' paciente.id %}" method="POST">
+        <h4>Datos del paciente:</h4>
+        {% csrf_token %}               
+        <p>Nombre:</p> 
+        {{mi_formulario.nombre}}
+
+        <p>Edad:</p>
+        {{mi_formulario.edad}}
+       <!-- <input type="number" name="edad" required> -->
+        <p>DNI:</p>
+        {{mi_formulario.dni}}
+
+        <p>Teléfono:</p>
+        {{mi_formulario.telefono}}
+        
+        <p>Email:</p>
+        {{mi_formulario.email}}
+        <!--<input type="email" name="email" required> -->
+        <input type="submit" value="Enviar">
+        </button>
+        <a href="{% url 'pacientes' %}">Volver</a>
+        </button>
+    </form>
+
+{% endblock %}

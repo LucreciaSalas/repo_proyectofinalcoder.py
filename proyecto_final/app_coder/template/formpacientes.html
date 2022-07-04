@@ -1,0 +1,26 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <form action="alta_pacientes" method="POST">
+        <h4>Datos del paciente:</h4>
+        {% csrf_token %}               
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+        <p>Edad:</p>
+        <input type="number" name="edad" required>
+        <p>DNI:</p>
+        <input type="number" name="dni" required>
+        <p>Teléfono:</p>
+        <input type="number" name="telefono" required>
+        <p>Email:</p>
+        <input type="email" name="email" required>
+        <input type="submit" value="Registrar">
+        </button>
+        <a href="{% url 'pacientes' %}">Volver</a>
+        </button>
+    </form>
+
+{% endblock %}

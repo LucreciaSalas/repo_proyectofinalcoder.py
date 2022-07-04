@@ -1,0 +1,41 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+
+<table class="table">
+    <thead>
+      <h3>Listado Prestadores</h3>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Especialidad</th>     
+        <th scope="col">Teléfono</th>
+        <th scope="col">Email</th>           
+      </tr>
+    </thead>
+    <tbody>
+        {% for n in prestadores %}
+        <tr>
+            <th scope="row">{{n.id}}</th>
+            <td>{{n.nombre}}</td>
+            <td>{{n.especialidad}}</td> 
+            <td>{{n.telefono}}</td>
+            <td>{{n.email}}</td>   
+            <td><a href="{% url 'elimina_prestador' n.id %}">Borrar</a></td>    
+            <td><a href="{% url 'editar_prestador' n.id %}">Editar</a></td>                 
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </button>
+    <a href="alta_prestadores">Agregar Prestador</a>
+    <p>     </p>
+    <a href="buscar_prestador">Buscar Prestador</a>
+    <p>     </p>
+    <a href="{% url 'inicio' %}">Volver</a>
+  </button>
+
+{% endblock %}

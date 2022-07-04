@@ -1,0 +1,43 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <table class="table">
+        <thead>
+          <h3>Listado Proveedores</h3>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">CUIT</th>
+            <th scope="col">CBU</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Email</th>        
+          </tr>
+        </thead>
+        <tbody>
+            {% for n in proveedores %}
+            <tr>
+                <th scope="row">{{n.id}}</th>
+                <td>{{n.nombre}}</td>
+                <td>{{n.cuit}}</td>
+                <td>{{n.cbu}}</td>
+                <td>{{n.telefono}}</td>
+                <td>{{n.email}}</td>  
+                <td><a href="{% url 'elimina_proveedor' n.id %}">Borrar</a></td>
+                <td><a href="{% url 'editar_proveedor' n.id %}">Editar</a></td>  
+            </tr>
+            {% endfor %}
+
+        </tbody>
+      </table>
+      </button>
+        <a href="alta_proveedores">Agregar Proveedor</a>
+        <p>     </p>
+        <a href="buscar_proveedor">Buscar Proveedor</a>
+        <p>     </p>
+        <a href="{% url 'inicio' %}">Volver</a>
+      </button>
+
+{% endblock %}

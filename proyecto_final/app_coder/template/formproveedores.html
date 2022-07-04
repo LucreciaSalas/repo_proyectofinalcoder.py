@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <form action="alta_proveedores" method="POST">
+        <h4>Datos del proveedor:</h4>
+        {% csrf_token %}    
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+        <p>CUIT:</p>
+        <input type="number" name="cuit" required>
+        <p>CBU:</p>
+        <input type="number" name="cbu" required>
+        <p>Teléfono:</p>
+        <input type="number" name="telefono" required>
+        <p>Email:</p>
+        <input type="email" name="email" required>
+        <input type="submit" value="Registrar">
+        </button>
+        <a href="{% url 'proveedores' %}">Volver</a>
+        </button>
+
+    </form>
+
+{% endblock %}

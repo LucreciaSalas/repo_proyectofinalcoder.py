@@ -1,0 +1,29 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <form action="{% url 'editar_prestador' prestador.id %}" method="POST">
+        <h4>Datos del prestador:</h4>
+        {% csrf_token %}               
+        <p>Nombre:</p> 
+        {{mi_formulario.nombre}}
+
+        <p>Especialidad:</p>
+        {{mi_formulario.especialidad}}
+     
+        <p>Teléfono:</p>
+        {{mi_formulario.telefono}}
+        
+        <p>Email:</p>
+        {{mi_formulario.email}}
+        
+        <input type="submit" value="Enviar">
+        
+        </button>
+        <a href="{% url 'prestadores' %}">Volver</a>
+        </button>
+    </form>
+
+{% endblock %}

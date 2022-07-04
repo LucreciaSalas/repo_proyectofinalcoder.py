@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% if pacientes %}
+
+    <ul> 
+    {% for paciente in pacientes %}
+        <li>Nombre: {{paciente.nombre}}</li>
+        <li>Edad: {{paciente.edad}}</li>
+        <li>DNI: {{paciente.dni}}</li>
+        <li>Teléfono: {{paciente.telefono}}</li>
+        <li>Email: {{paciente.email}}</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No se encontraron resultados</p>
+    {% endif %}
+</body>
+</html>

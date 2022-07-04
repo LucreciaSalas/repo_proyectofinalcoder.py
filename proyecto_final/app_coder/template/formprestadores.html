@@ -1,0 +1,24 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <form action="alta_prestadores" method="POST">
+        <h4>Datos del prestador:</h4>
+        {% csrf_token %}  
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+        <p>Especialidad:</p>
+        <input type="text" name="especialidad" required>
+        <p>Teléfono:</p>
+        <input type="number" name="telefono" required>
+        <p>Email:</p>
+        <input type="email" name="email" required>
+        <input type="submit" value="Registrar">
+        </button>
+        <a href="{% url 'prestadores' %}">Volver</a>
+        </button>
+    </form>
+
+{% endblock %}
